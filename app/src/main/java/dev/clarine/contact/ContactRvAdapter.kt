@@ -3,7 +3,9 @@ package dev.clarine.contact
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import dev.clarine.contact.databinding.ContactListBinding
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
 class ContactRvAdapter(val contactsList:List<ContactData>):RecyclerView.Adapter<ContactViewHolder>() {
 
@@ -19,12 +21,17 @@ class ContactRvAdapter(val contactsList:List<ContactData>):RecyclerView.Adapter<
             tvName.text=contacts.displayName
             tvEmail.text=contacts.email
             tvPhoneNo.text=contacts.phoneNumber
+           Picasso
+               .get()
+               .load(contacts.avatar)
+               .resize(80,80)
+               .centerCrop()
+               .transform(CropCircleTransformation())
+               .into(holder.binding.ivPerson)
 
         }
 
     }
-
-
 
     override fun getItemCount(): Int {
         return contactsList.size
