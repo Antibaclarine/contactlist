@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">contact</string>
     <string name="add_contact">Add Contact</string>
+    <string name="email_is_required">Email is required</string>
+    <string name="contacts_is_required">Contacts is required</string>
+    <string name="name_is_required">Name is required</string>
 </resources>
